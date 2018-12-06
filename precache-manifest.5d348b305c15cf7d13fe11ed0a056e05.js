@@ -4,6 +4,10 @@ self.__precacheManifest = [
     "url": "/funbox/static/media/funbox_logo.38a2d03d.png"
   },
   {
+    "revision": "530d3166bc7f3ee970eec68df2a2bd2e",
+    "url": "/funbox/static/media/TrebuchetMS.530d3166.ttf"
+  },
+  {
     "revision": "44bde8744ccc0de7995a23b0e82dd281",
     "url": "/funbox/static/media/Exo2.0-Thin.44bde874.otf"
   },
@@ -12,19 +16,19 @@ self.__precacheManifest = [
     "url": "/funbox/static/js/runtime~main.be8b6e86.js"
   },
   {
-    "revision": "1ec86e1b3edee6a04334",
-    "url": "/funbox/static/js/main.1ec86e1b.chunk.js"
+    "revision": "aeb411e9a97892f8603d",
+    "url": "/funbox/static/js/main.aeb411e9.chunk.js"
   },
   {
     "revision": "5941505055fbc6aef3e3",
     "url": "/funbox/static/js/1.59415050.chunk.js"
   },
   {
-    "revision": "1ec86e1b3edee6a04334",
-    "url": "/funbox/static/css/main.fc6c9e25.chunk.css"
+    "revision": "aeb411e9a97892f8603d",
+    "url": "/funbox/static/css/main.70918a1d.chunk.css"
   },
   {
-    "revision": "2c66fa3599017e5d96f82e9a126f18ba",
+    "revision": "7645d2c39209042dd574d81b4bdd2258",
     "url": "/funbox/index.html"
   }
 ];
