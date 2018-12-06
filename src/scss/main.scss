@@ -33,7 +33,6 @@ body {
 }
 .header {
     text-align: center;
-    
     h1 {
         color: #ffffff;
         font-weight: normal;
@@ -70,8 +69,7 @@ body {
 }
 .card__wrapper {
     position: relative;
-    width: 324px;
-    height: 484px;
+ 
     cursor: pointer;
     img {
         position: absolute;
@@ -81,6 +79,9 @@ body {
     }
     .stroke {
         position: absolute;
+        path {
+            pointer-events: none;
+        }
     }
 }
     
@@ -150,6 +151,7 @@ body {
 
 .card__selected {
     path  {
+        pointer-events: none;
         stroke: $selected-color !important;
     }
     .circle {
@@ -158,9 +160,11 @@ body {
 }
 
 .card__selected__hover {
-    path {
-        stroke: $selected-color !important;
+    
+    path  {
+    stroke: $selected-color !important;
     }
+    
     .circle {
         background-color: $selected-color !important;
     }

@@ -14,8 +14,35 @@ const propTypes  = {
 class Card extends React.Component {
     constructor(props) {
         super(props);
-        this.state = {isSelected: false, isSelectedHover: false, isDisabled: false};
+        this.state = {
+            isSelected: false, 
+            isSelectedHover: false, 
+            isDisabled: false
+        };
     }
+
+    handleOnClick() {
+        if(!this.state.isDisabled) 
+            if (!this.state.isSelected) {
+                this.setState({isSelected: true});
+            }   
+            else {
+                this.setState({isSelected: false});
+                this.setState({isSelectedHover: false});
+            }
+    }
+    
+    handleOnMouseOver() {
+        if (this.state.isSelected) {
+            this.setState({isSelectedHover: true});
+        } else
+            this.setState({isSelectedHover: false});
+    }
+    
+    handleOnMouseOut() {
+        this.setState({isSelectedHover: false});
+    }
+
     componentWillMount() {
         if(this.props.card.isDisabled)
             this.setState({isDisabled: true});
@@ -33,9 +60,10 @@ class Card extends React.Component {
             <div className={cardClass}>
                 <div 
                     className="card__wrapper" 
-                    onClick={ handleOnClick.bind(this) } 
-                    onMouseOver={handleOnMouseOver.bind(this)} 
-                    onMouseOut={handleOnMouseOut.bind(this)}>
+                    onClick={ this.handleOnClick.bind(this) } 
+                    onMouseOver={this.handleOnMouseOver.bind(this)} 
+                    onMouseOut={this.handleOnMouseOut.bind(this)}
+                    >
                     <div className="card__content">
                         <div className="card__subtitle">{this.state.isSelectedHover ? 'Котэ не одобряет?': 'Сказочное заморское яство'}</div>
                         <div className="card__title">
@@ -52,16 +80,16 @@ class Card extends React.Component {
                         <span>кг</span>    
                     </div>
                     <svg  className="stroke" width="326px" height="486px">
-                            <path stroke="rgb(22, 152, 217)" strokeWidth="4px" fill="none" d="M310.000,482.000 L14.000,482.000 C7.373,482.000 2.000,476.627 2.000,470.000 L2.000,45.000 L45.000,2.000 L310.000,2.000 C316.627,2.000 322.000,7.372 322.000,14.000 L322.000,470.000 C322.000,476.627 316.627,482.000 310.000,482.000 Z"/>
+                        <path stroke="rgb(22, 152, 217)" strokeWidth="4px" fill="none" d="M310.000,482.000 L14.000,482.000 C7.373,482.000 2.000,476.627 2.000,470.000 L2.000,45.000 L45.000,2.000 L310.000,2.000 C316.627,2.000 322.000,7.372 322.000,14.000 L322.000,470.000 C322.000,476.627 316.627,482.000 310.000,482.000 Z"/>
                     </svg>
-                    <svg width="326px" height="486px">
-                            <path strokeWidth="4px" fill="rgb(242, 242, 242)" d="M310.000,482.000 L14.000,482.000 C7.373,482.000 2.000,476.627 2.000,470.000 L2.000,45.000 L45.000,2.000 L310.000,2.000 C316.627,2.000 322.000,7.372 322.000,14.000 L322.000,470.000 C322.000,476.627 316.627,482.000 310.000,482.000 Z"/>
+                    <svg width="322px" height="482px"  >
+                        <path strokeWidth="4px" fill="rgb(242, 242, 242)" d="M310.000,482.000 L14.000,482.000 C7.373,482.000 2.000,476.627 2.000,470.000 L2.000,45.000 L45.000,2.000 L310.000,2.000 C316.627,2.000 322.000,7.372 322.000,14.000 L322.000,470.000 C322.000,476.627 316.627,482.000 310.000,482.000 Z"/>
                     </svg>
                   
                 </div>
                 <div className="card__footer">
                     {this.state.isSelected && (<p>{card.description}</p>)} 
-                    {(!this.state.isDisabled && !this.state.isSelected)  && (<p>Чего сидишь? Порадуй котэ <a href="#" onClick={ handleOnClick.bind(this) }>купи.</a></p>) }
+                    {(!this.state.isDisabled && !this.state.isSelected)  && (<p>Чего сидишь? Порадуй котэ, <a href="#" onClick={ this.handleOnClick.bind(this) }>купи.</a></p>) }
                     {this.state.isDisabled && (<p>Печалька, {card.subtitle} закончился</p>)} 
                 </div>
             </div>
@@ -70,26 +98,6 @@ class Card extends React.Component {
     }
 
 }
-function handleOnClick() {
-    if(!this.state.isDisabled) 
-        if (!this.state.isSelected) {
-            this.setState({isSelected: true});
-        }   
-        else {
-            this.setState({isSelected: false});
-            this.setState({isSelectedHover: false});
-        }
-}
 
-function handleOnMouseOver() {
-    if (this.state.isSelected) {
-        this.setState({isSelectedHover: true});
-    } else
-        this.setState({isSelectedHover: false});
-}
-
-function handleOnMouseOut() {
-    this.setState({isSelectedHover: false});
-}
 Card.propTypes = propTypes
 export default Card;
