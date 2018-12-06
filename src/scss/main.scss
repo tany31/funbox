@@ -1,0 +1,201 @@
+@import "_vars.scss";
+
+@font-face {
+    font-family: "Exo2.0-Thin";
+    src: url(../fonts/Exo2.0-Thin.otf);
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: "TrebuchetMS";
+    src: url(../fonts/TrebuchetMS.ttf);
+    font-weight: normal;
+    font-style: normal;
+}
+html, body, .root, .App {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+}
+body {
+    background-image: url("../img/узор.png");
+    font-family: "Exo2.0-Thin";
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+
+}
+.header {
+    text-align: center;
+    
+    h1 {
+        color: #ffffff;
+        font-weight: normal;
+        margin: 0;
+    }
+
+} 
+
+.content {
+    display: flex; 
+    flex-flow: row wrap;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+}
+    
+.card {
+    padding: 2rem;
+    font-family: "TrebuchetMS";
+    &:hover {
+        path { 
+            stroke: $default-hover-color;
+        }
+        .circle {
+            background-color: $default-hover-color;
+        } 
+        .card__footer {
+            a { 
+                color: $default-hover-color;
+                border-bottom: 1px $default-hover-color dashed;
+            }
+        }
+    }
+}
+.card__wrapper {
+    position: relative;
+    width: 324px;
+    height: 484px;
+    cursor: pointer;
+    img {
+        position: absolute;
+        width: 350px;
+        top: 210px;
+        border-radius: 5%;
+    }
+    .stroke {
+        position: absolute;
+    }
+}
+    
+.card__content {
+    position: absolute;
+    padding: 1.5rem 3rem;
+    box-sizing: border-box;
+    color: #666666;
+}
+    
+.card__title {
+    color: #000000;
+    margin-bottom: 1rem;
+    font-weight: bold;
+    line-height: 1.2;
+    h2 {
+        margin-top: 0.5rem;
+        margin-bottom: 0;
+        font-size: 3rem;
+    }
+    span {
+        font-size: 1.5rem;
+    }
+}
+    
+.card__consist { 
+    font-size: 0.9rem
+}
+
+.circle {
+    position: absolute;
+    bottom: 1rem;
+    right: 1rem;
+    display: flex; 
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: $default-color;
+    border-radius: 50%;
+    width: 81px;
+    height: 81px;
+    span {
+        color: #ffffff;
+        &:nth-child(1) {
+            font-size: 2.5rem;
+        }
+        &:nth-child(3) {
+            font-size: 1.3rem;
+        }
+    }
+
+}
+
+
+.card__footer {
+    text-align: center;
+    color: #ffffff;
+    font-size: 0.8rem;
+    a {
+        color: $default-color;
+        text-decoration: none; 
+        border-bottom: 1px $default-color dashed;
+    }
+   
+}
+
+
+.card__selected {
+    path  {
+        stroke: $selected-color !important;
+    }
+    .circle {
+        background-color: $selected-color !important;
+    }    
+}
+
+.card__selected__hover {
+    path {
+        stroke: $selected-color !important;
+    }
+    .circle {
+        background-color: $selected-color !important;
+    }
+    .card__subtitle {
+        color: $selected-color;
+    }
+}
+
+
+
+
+.card__disabled {
+    .card__content {
+        color: #d4d4d4;
+        .card__title { color: #d4d4d4;}
+    }
+    img {opacity: 0.5;}
+    .stroke {
+        path {stroke: $disabled-color;}
+    }
+        
+    .circle {background-color: $disabled-color;}
+                
+    .card__footer {color: #ffff66;}
+    &:hover { 
+        .card__content
+            {color: #d4d4d4;}
+        .card__title
+            {color: #d4d4d4;}
+        img 
+           { opacity: 0.5;}
+        .stroke {
+            path {stroke: $disabled-color;}
+        }
+            
+        .circle {background-color: $disabled-color;}        
+    }
+}
